@@ -1,0 +1,1140 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: #f5f5f7;
+  color: #222;
+
+
+  font-family:
+    "Inter",
+    "Noto Sans JP",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+
+}
+
+.app-header {
+  background-color: #1f2933;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.app-header h1 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.app-nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.app-nav a,
+.app-nav button {
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background-color: #374151;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.app-nav a:hover,
+.app-nav button:hover {
+  background-color: #4b5563;
+}
+
+.app-main {
+  max-width: 1100px;
+  margin: 1rem auto 2rem;
+  padding: 0 1rem;
+}
+
+.view-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+h2 {
+  margin: 0.5rem 0 0.75rem;
+  font-size: 1.2rem;
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+}
+
+button.primary {
+  background-color: #2563eb;
+  border: none;
+  color: #fff;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+button.primary:hover {
+  background-color: #1d4ed8;
+}
+
+button.secondary {
+  border: 1px solid #d1d5db;
+  background-color: #fff;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+button.secondary:hover {
+  background-color: #f3f4f6;
+}
+
+button.link-button {
+  border: none;
+  background: none;
+  padding: 0;
+  color: #2563eb;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Forms */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="date"],
+input[type="time"],
+input[type="password"],
+select,
+textarea {
+  padding: 0.45rem 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background-color: #f9fafb;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 1px;
+  background-color: #fff;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form-fieldset {
+  border-radius: 0.6rem;
+  border: 1px solid #e5e7eb;
+  padding: 0.75rem;
+}
+
+.form-fieldset legend {
+  font-size: 0.85rem;
+  padding: 0 0.25rem;
+}
+
+/* 2カラム（ID/PWなど） */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 720px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 逆質問リスト（チップ表示） */
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  font-size: 0.9rem;
+}
+
+.chip button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  opacity: 0.7;
+}
+
+.chip button:hover {
+  opacity: 1;
+}
+
+
+.form-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-top: 0.25rem;
+}
+
+.inline-form {
+  margin-bottom: 0.75rem;
+}
+
+/* ログインエラー */
+.login-error {
+  font-size: 0.85rem;
+  color: #ef4444;
+}
+
+/* フィルタ & ソート */
+.list-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.list-controls label {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.list-controls select {
+  min-width: 130px;
+}
+
+.sort-dir-btn {
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background-color: #ffffff;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.sort-dir-btn:hover {
+  background-color: #f3f4f6;
+}
+
+/* Card list (企業一覧) */
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.75rem;
+}
+
+.company-card {
+  background-color: #fff;
+  border-radius: 0.75rem;
+  padding: 0.8rem;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  cursor: pointer;
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+
+.company-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.12);
+}
+
+.company-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.company-card-title {
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
+.company-card-next {
+  font-size: 0.8rem;
+  color: #374151;
+}
+
+.company-card-url a {
+  font-size: 0.8rem;
+  color: #2563eb;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.company-card-url a:hover {
+  text-decoration: underline;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  background-color: #e5f0ff;
+  color: #1d4ed8;
+}
+
+.muted {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+/* Tabs (詳細画面) */
+.tabs {
+  display: inline-flex;
+  gap: 0.25rem;
+  background-color: #e5e7eb;
+  border-radius: 999px;
+  padding: 0.15rem;
+  margin-bottom: 0.75rem;
+}
+
+.tab-button {
+  border: none;
+  background: none;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  color: #4b5563;
+}
+
+.tab-button.active {
+  background-color: #fff;
+  color: #111827;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.15);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* ES / コメント / 面接（あなたのを維持） */
+.es-header,
+.interview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.es-items,
+.interview-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.es-item,
+.interview-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.6rem;
+  padding: 0.6rem;
+  background-color: #f9fafb;
+}
+
+.es-item-header,
+.interview-item-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.es-question,
+.interview-stage {
+  flex: 1;
+}
+
+.es-delete,
+.interview-delete,
+.interview-qa-delete {
+  border: none;
+  background: none;
+  font-size: 0.8rem;
+  color: #ef4444;
+  cursor: pointer;
+}
+
+.es-delete:hover,
+.interview-delete:hover,
+.interview-qa-delete:hover {
+  text-decoration: underline;
+}
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.comment-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.6rem;
+  padding: 0.5rem 0.6rem;
+  background-color: #f9fafb;
+  font-size: 0.85rem;
+}
+
+.comment-meta {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-bottom: 0.2rem;
+}
+
+.interview-qa-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+  margin-bottom: 0.4rem;
+}
+
+.interview-qa-item {
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  padding: 0.4rem 0.5rem;
+  border: 1px dashed #d1d5db;
+}
+
+.interview-qa-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.interview-qa-label {
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.interview-question,
+.interview-answer {
+  width: 100%;
+  margin-top: 0.2rem;
+}
+
+/* detail header */
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 0.25rem 0 0.75rem;
+}
+
+.detail-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.secondary-link {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  color: #111827;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.secondary-link:hover {
+  background: #f3f4f6;
+}
+
+/* ---- 企業詳細：予定行 ---- */
+.company-event-row {
+  display: grid;
+  grid-template-columns: 140px 110px 1fr 120px 72px;
+  gap: 8px;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fff;
+  margin-bottom: 8px;
+}
+
+.company-event-delete {
+  border: none;
+  background: none;
+  color: #ef4444;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.company-event-delete:hover {
+  text-decoration: underline;
+}
+
+.secondary {
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+}
+
+.secondary:hover {
+  background: #f3f4f6;
+}
+
+.row-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+/* highlight (既にあるなら不要) */
+.company-event-row.event-highlight {
+  outline: 2px solid rgba(59, 130, 246, 0.8);
+  box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.15);
+  transition: box-shadow 0.2s ease, outline 0.2s ease;
+}
+
+/* Calendar */
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+#calendar-label {
+  font-weight: 600;
+}
+
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+}
+
+.calendar-table th,
+.calendar-table td {
+  border: 1px solid #e5e7eb;
+  vertical-align: top;
+  padding: 0.4rem;
+  font-size: 0.8rem;
+}
+
+.calendar-table th {
+  text-align: center;
+  background-color: #f9fafb;
+  font-weight: 600;
+}
+
+.calendar-day-number {
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.calendar-events {
+  margin-top: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+/* カレンダー内イベント（クリックで詳細へ） */
+.calendar-event {
+  padding: 4px 6px;
+  border-radius: 8px;
+  margin-top: 4px;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: 0.75rem;
+}
+
+.calendar-event .calendar-event-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* app-nav が <a> の場合の見た目 */
+.app-nav a {
+  display: inline-block;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background-color: #374151;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.app-nav a:hover {
+  background-color: #4b5563;
+}
+
+/* calendar のイベント削除ボタン */
+.calendar-event-del {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+  color: #0f172a;
+  opacity: 0.55;
+}
+
+.calendar-event-del:hover {
+  opacity: 1;
+}
+
+/* 色テーマ（data-color） */
+.calendar-event[data-color="blue"] {
+  background: rgba(59, 130, 246, 0.18);
+}
+
+.calendar-event[data-color="green"] {
+  background: rgba(34, 197, 94, 0.18);
+}
+
+.calendar-event[data-color="orange"] {
+  background: rgba(249, 115, 22, 0.18);
+}
+
+.calendar-event[data-color="purple"] {
+  background: rgba(168, 85, 247, 0.18);
+}
+
+.calendar-event[data-color="gray"] {
+  background: rgba(100, 116, 139, 0.18);
+}
+
+/* Footer */
+.app-footer {
+  text-align: center;
+  padding: 0.75rem 1rem 1.25rem;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* ---- Toast ---- */
+#toast-root {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toast {
+  min-width: 220px;
+  max-width: 320px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+  background: linear-gradient(135deg, #2563eb, #ec4899);
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(-10px) scale(0.96);
+  animation: toast-in 0.2s ease-out forwards, toast-out 0.4s ease-in forwards 3s;
+}
+
+.toast-icon {
+  font-size: 1.1rem;
+}
+
+.toast-message {
+  flex: 1;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@keyframes toast-in {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toast-out {
+  to {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+}
+
+/* ===== ログアウトボタン視認性修正 ===== */
+button.secondary {
+  background-color: #f3f4f6;
+  /* 薄いグレー */
+  color: #111827;
+  /* 濃い文字 */
+  border: 1px solid #d1d5db;
+}
+
+button.secondary:hover {
+  background-color: #e5e7eb;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .form {
+    padding: 0.9rem;
+  }
+
+  .calendar-table th,
+  .calendar-table td {
+    padding: 0.25rem;
+  }
+
+  .inline-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inline-form label {
+    width: 100%;
+  }
+
+  .view-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .list-controls {
+    align-items: flex-start;
+  }
+
+  .company-event-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ES 文字数カウンタ */
+.char-counter {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  opacity: 0.8;
+  text-align: right;
+}
+
+.char-counter.over {
+  opacity: 1;
+  font-weight: 700;
+}
+
+.company-card-deadline {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* 締切が近い/今日/過ぎた */
+.company-card-deadline.deadline-soon {
+  font-weight: 700;
+}
+
+.company-card-deadline.deadline-today {
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+.company-card-deadline.deadline-over {
+  opacity: 0.7;
+  text-decoration: line-through;
+}
+
+.rating-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+@media (max-width: 720px) {
+  .rating-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.rating-label {
+  font-weight: 600;
+}
+
+.rating-stars button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  padding: 2px 3px;
+  opacity: 0.35;
+}
+
+.rating-stars button.on {
+  opacity: 1;
+}
+
+.company-card-rating {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* =========================
+   “企業っぽい” UI に寄せる上書き
+   ========================= */
+
+/* ---- Design tokens ---- */
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: rgba(17, 24, 39, 0.10);
+  --border-strong: rgba(17, 24, 39, 0.14);
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-md: 0 8px 24px rgba(16, 24, 40, 0.08);
+  --radius-lg: 14px;
+  --radius-md: 12px;
+  --radius-sm: 10px;
+  --primary: #2563eb;
+  --primary-600: #1d4ed8;
+  --focus: rgba(37, 99, 235, 0.25);
+}
+
+/* ---- Base ---- */
+body {
+  background: var(--bg);
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+
+.app-main {
+  max-width: 1040px;
+}
+
+/* ---- Header / Nav ---- */
+.app-header {
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.app-header h1 {
+  font-size: 1.05rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+.app-nav a,
+.app-nav button {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: none;
+  padding: 0.44rem 0.78rem;
+}
+
+.app-nav a:hover,
+.app-nav button:hover {
+  background: rgba(17, 24, 39, 0.04);
+  border-color: var(--border-strong);
+}
+
+/* “今いるページ”が分かる感じ（aria-currentがある時） */
+.app-nav a[aria-current="page"] {
+  background: rgba(37, 99, 235, 0.10);
+  border-color: rgba(37, 99, 235, 0.25);
+  color: var(--primary-600);
+}
+
+/* ---- Buttons ---- */
+button.primary {
+  background: var(--primary);
+  border-radius: var(--radius-md);
+  padding: 0.52rem 1rem;
+  font-weight: 650;
+  box-shadow: var(--shadow-sm);
+}
+
+button.primary:hover {
+  background: var(--primary-600);
+}
+
+button.secondary,
+.secondary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 0.52rem 1rem;
+  box-shadow: none;
+}
+
+button.secondary:hover,
+.secondary:hover {
+  background: rgba(17, 24, 39, 0.03);
+  border-color: var(--border-strong);
+}
+
+/* ---- Forms ---- */
+.form {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: none;
+  padding: 1.1rem;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="date"],
+input[type="time"],
+input[type="password"],
+select,
+textarea {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.56rem 0.72rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid var(--focus);
+  outline-offset: 1px;
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+/* fieldset */
+.form-fieldset {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgba(17, 24, 39, 0.02);
+}
+
+/* ---- Tabs ---- */
+.tabs {
+  background: rgba(17, 24, 39, 0.06);
+  padding: 0.2rem;
+}
+
+.tab-button {
+  color: rgba(17, 24, 39, 0.70);
+  font-weight: 600;
+}
+
+.tab-button.active {
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+/* ---- List controls ---- */
+.list-controls {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 0.7rem 0.8rem;
+  box-shadow: none;
+}
+
+.sort-dir-btn {
+  border-radius: var(--radius-md);
+}
+
+/* ---- Cards ---- */
+.card-list {
+  gap: 0.9rem;
+}
+
+.company-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: none;
+  padding: 0.95rem 1rem;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+}
+
+.company-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+}
+
+.company-card-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+}
+
+.company-card-next,
+.company-card-deadline,
+.company-card-rating {
+  color: rgba(17, 24, 39, 0.70);
+}
+
+.tag {
+  background: rgba(37, 99, 235, 0.10);
+  color: var(--primary-600);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  font-weight: 650;
+}
+
+/* URLリンクを“ボタンぽく”しすぎない */
+.company-card-url a {
+  color: var(--primary-600);
+  font-weight: 600;
+}
+
+/* ---- Muted ---- */
+.muted {
+  color: var(--muted);
+}
+
+/* ---- Deadline emphasis (色は薄めに) ---- */
+.company-card-deadline.deadline-soon {
+  font-weight: 750;
+}
+
+.company-card-deadline.deadline-today {
+  font-weight: 800;
+  text-decoration: none;
+  border-left: 3px solid rgba(37, 99, 235, 0.55);
+  padding-left: 10px;
+}
+
+.company-card-deadline.deadline-over {
+  opacity: 0.6;
+}
+
+/* ---- Rating stars ---- */
+.rating-stars button {
+  font-size: 21px;
+  opacity: 0.25;
+}
+
+.rating-stars button.on {
+  opacity: 1;
+}
+
+/* ---- Company events row ---- */
+.company-event-row {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+
+/* ---- Toast (派手さを落としてプロダクト寄り) ---- */
+.toast {
+  border-radius: 14px;
+  background: rgba(17, 24, 39, 0.92);
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+
+/* dialog（パスワード変更） */
+dialog {
+  border: none;
+  border-radius: 14px;
+  padding: 0;
+  max-width: 520px;
+  width: calc(100% - 24px);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.25);
+}
+
+dialog::backdrop {
+  background: rgba(15, 23, 42, 0.45);
+}
+
+#pw-dialog .form {
+  margin: 0;
+}

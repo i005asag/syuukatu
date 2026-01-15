@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>就活管理アプリ - カレンダー</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>🧭 就活管理アプリ</h1>
+    <nav class="app-nav">
+      <a href="list.html">🏠 ホーム</a>
+      <a href="calendar.html" aria-current="page">📅 カレンダー</a>
+      <a href="register.html">➕ 企業登録</a>
+      <button id="logout-btn" type="button" class="secondary">ログアウト</button>
+    </nav>
+  </header>
+
+  <main class="app-main">
+    <section class="view active">
+      <div class="view-header">
+        <h2>カレンダー</h2>
+        <div class="calendar-nav">
+          <button id="calendar-prev" class="secondary" type="button">&laquo; 前の月</button>
+          <span id="calendar-label"></span>
+          <button id="calendar-next" class="secondary" type="button">次の月 &raquo;</button>
+        </div>
+      </div>
+
+      <!-- ✅ 先にカレンダー（上） -->
+      <table class="calendar-table">
+        <thead>
+          <tr>
+            <th>日</th>
+            <th>月</th>
+            <th>火</th>
+            <th>水</th>
+            <th>木</th>
+            <th>金</th>
+            <th>土</th>
+          </tr>
+        </thead>
+        <tbody id="calendar-body">
+          <!-- JSで描画 -->
+        </tbody>
+      </table>
+
+      <!-- ✅ 次に追加フォーム（下） -->
+      <form id="event-form" class="form inline-form" style="margin-top: 14px;">
+        <label>
+          日付
+          <input type="date" id="event-date" required />
+        </label>
+        <label>
+          時刻
+          <input type="time" id="event-time" />
+        </label>
+        <label>
+          企業
+          <select id="event-company" required></select>
+        </label>
+        <label>
+          内容
+          <input type="text" id="event-title" placeholder="一次面接 / ES締切 など" required />
+        </label>
+        <label>
+          色
+          <select id="event-color">
+            <option value="blue">青</option>
+            <option value="green">緑</option>
+            <option value="orange">オレンジ</option>
+            <option value="purple">紫</option>
+            <option value="gray">グレー</option>
+          </select>
+        </label>
+
+        <button type="submit" class="primary">予定を追加</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>&copy; 就活管理アプリ</small>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast-root"></div>
+
+  <script type="module" src="./js/page-calendar.js"></script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>就活管理アプリ - 企業詳細</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+  <header class="app-header">
+    <h1>🧭 就活管理アプリ</h1>
+    <nav class="app-nav">
+      <a href="list.html">🏠 ホーム</a>
+      <a href="calendar.html">📅 カレンダー</a>
+      <a href="register.html">➕ 企業登録</a>
+      <button id="logout-btn" type="button" class="secondary">ログアウト</button>
+    </nav>
+  </header>
+
+  <main class="app-main">
+    <section class="view active">
+      <button id="back-to-list" class="link-button">&larr; ホームに戻る</button>
+
+      <div class="detail-header">
+        <h2 id="detail-company-name">企業名</h2>
+        <div class="detail-actions">
+          <a id="detail-open-mypage" class="secondary-link" href="#" target="_blank" rel="noopener noreferrer"
+            style="display:none;">
+            マイページを開く
+          </a>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-button active" data-tab="info">企業情報</button>
+        <button class="tab-button" data-tab="es">ES</button>
+        <button class="tab-button" data-tab="comment">コメント</button>
+        <button class="tab-button" data-tab="interview">面接</button>
+      </div>
+
+      <!-- 企業情報タブ -->
+      <div class="tab-content active" id="tab-info">
+        <form id="detail-info-form" class="form">
+          <label>
+            企業名
+            <input type="text" id="detail-company-name-input" placeholder="例）〇〇株式会社" />
+          </label>
+
+          <label>
+            マイページURL
+            <input type="url" id="detail-mypage-url" placeholder="https://..." />
+          </label>
+
+          <div class="two-col">
+            <label>
+              ログインID（任意）
+              <input type="text" id="detail-login-id" placeholder="メールアドレス / ID など" autocomplete="username" />
+            </label>
+
+            <label>
+              パスワード（任意）
+              <input type="password" id="detail-password" placeholder="保存する場合は自己責任" autocomplete="current-password" />
+            </label>
+          </div>
+
+          <label>
+            職種
+            <input type="text" id="detail-job-type" placeholder="総合職 など" />
+          </label>
+
+          <label>
+            ステータス
+            <select id="detail-status">
+              <option value="">未設定</option>
+              <option value="未応募">未応募</option>
+              <option value="エントリー済">エントリー済</option>
+              <option value="選考中">選考中</option>
+              <option value="内定">内定</option>
+              <option value="終了">終了</option>
+            </select>
+          </label>
+
+          <label>
+            応募締切日（任意）
+            <input type="date" id="detail-deadline" />
+          </label>
+
+          <p id="deadline-countdown" class="muted" style="margin-top:6px;"></p>
+
+          <fieldset class="form-fieldset">
+            <legend>自分なりの評価（★1〜5）</legend>
+
+            <div class="rating-row">
+              <div class="rating-label">志望度</div>
+              <div class="rating-stars" data-rating-key="motivation"></div>
+            </div>
+
+            <div class="rating-row">
+              <div class="rating-label">年収</div>
+              <div class="rating-stars" data-rating-key="salary"></div>
+            </div>
+
+            <div class="rating-row">
+              <div class="rating-label">休日の多さ</div>
+              <div class="rating-stars" data-rating-key="holidays"></div>
+            </div>
+
+            <div class="rating-row">
+              <div class="rating-label">社風</div>
+              <div class="rating-stars" data-rating-key="culture"></div>
+            </div>
+
+            <p class="muted" style="margin-top:6px;">
+              ※ 自分の比較用。後でこの評価で並び替えできます。
+            </p>
+          </fieldset>
+
+
+          <label>
+            年間休日
+            <input type="text" id="detail-holidays" placeholder="120日以上 など" />
+          </label>
+
+          <label>
+            説明会メモ
+            <textarea id="detail-memo" rows="3" placeholder="研修が手厚い、〇〇が魅力 など"></textarea>
+          </label>
+
+          <fieldset class="form-fieldset">
+            <legend>逆質問リスト</legend>
+
+            <div class="two-col" style="align-items:end;">
+              <label style="margin:0;">
+                逆質問を入力
+                <input type="text" id="question-input" placeholder="例）配属の決め方は？" />
+              </label>
+
+              <button type="button" id="add-question" class="secondary">＋ 追加</button>
+            </div>
+
+            <div id="question-list" class="chip-list"></div>
+
+            <p class="muted" style="margin-top: 6px;">
+              追加した逆質問はここに保存されます（×で削除）。
+            </p>
+          </fieldset>
+
+
+          <fieldset class="form-fieldset">
+            <legend>この企業の予定</legend>
+
+            <div id="company-events-container"></div>
+
+            <div class="row-actions">
+              <button type="button" id="add-company-event" class="secondary">＋ 予定を追加</button>
+            </div>
+
+            <p class="muted" style="margin-top: 6px;">
+              例）説明会 / 一次面接 / 適性検査 / ES締切 など（色も付けられる）
+            </p>
+          </fieldset>
+
+          <div class="form-actions">
+            <button type="submit" class="primary">企業情報と予定を保存</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- ESタブ -->
+      <div class="tab-content" id="tab-es">
+        <form id="detail-es-form" class="form">
+          <div class="es-header">
+            <span>ES項目</span>
+            <button type="button" id="add-es-item" class="primary">質問を追加</button>
+          </div>
+
+          <div id="es-items-container" class="es-items"></div>
+
+          <p class="muted es-hint">
+            例：質問「志望動機」「自己PR」「学生時代に力を入れたこと」などを追加できます。
+          </p>
+
+          <div class="form-actions">
+            <button type="submit" class="primary">ES情報を保存</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- コメントタブ -->
+      <div class="tab-content" id="tab-comment">
+        <form id="detail-comment-form" class="form">
+          <label>
+            コメント
+            <textarea id="comment-input" rows="3" placeholder="企業への印象・選考の感想・後で見返したいメモなど"></textarea>
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="primary">コメントを追加</button>
+          </div>
+
+          <div id="comment-list" class="comment-list"></div>
+        </form>
+      </div>
+
+      <!-- 面接タブ -->
+      <div class="tab-content" id="tab-interview">
+        <form id="detail-interview-form" class="form">
+          <div class="interview-header">
+            <span>面接メモ</span>
+            <button type="button" id="add-interview-item" class="primary">面接を追加</button>
+          </div>
+
+          <div id="interview-items-container" class="interview-items"></div>
+
+          <p class="muted interview-hint">
+            例：一次面接 / 二次面接ごとに、「聞かれたこと」「回答」をメモしておけます。
+          </p>
+
+          <div class="form-actions">
+            <button type="submit" class="primary">面接情報を保存</button>
+          </div>
+        </form>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>&copy; 就活管理アプリ</small>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast-root"></div>
+
+  <script type="module" src="./js/page-detail.js"></script>
+</body>
+
+</html>

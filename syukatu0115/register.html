@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>就活管理アプリ - 企業登録</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>🧭 就活管理アプリ</h1>
+    <nav class="app-nav">
+      <a href="list.html">🏠 ホーム</a>
+      <a href="calendar.html">📅 カレンダー</a>
+      <a href="register.html" aria-current="page">➕ 企業登録</a>
+      <button id="logout-btn" type="button" class="secondary">ログアウト</button>
+    </nav>
+  </header>
+
+  <main class="app-main">
+    <section class="view active">
+      <div class="view-header">
+        <h2>企業登録</h2>
+        <button id="cancel-btn" type="button" class="secondary">キャンセル</button>
+      </div>
+
+      <form id="company-form" class="form">
+        <label>
+          企業名（必須）
+          <input type="text" id="company-name" required placeholder="例：〇〇株式会社" />
+        </label>
+
+        <label>
+          マイページURL
+          <input type="url" id="company-url" placeholder="https://..." />
+        </label>
+
+        <label>
+          ログインID（任意）
+          <input type="text" id="company-login-id" placeholder="メールアドレスなど" />
+        </label>
+
+        <label>
+          パスワード（任意）
+          <input type="password" id="company-password" placeholder="保存はローカルのみ" />
+        </label>
+
+        <label>
+          職種
+          <input type="text" id="company-job-type" placeholder="総合職 など" />
+        </label>
+
+        <label>
+          ステータス
+          <select id="company-status">
+            <option value="未応募">未応募</option>
+            <option value="エントリー済">エントリー済</option>
+            <option value="選考中">選考中</option>
+            <option value="内定">内定</option>
+            <option value="終了">終了</option>
+          </select>
+        </label>
+
+        <label>
+          年間休日
+          <input type="text" id="company-holidays" placeholder="120日以上 など" />
+        </label>
+
+        <label>
+          メモ
+          <textarea id="company-memo" rows="3" placeholder="印象・特徴など"></textarea>
+        </label>
+
+        <fieldset class="form-fieldset">
+          <legend>次の予定（任意）</legend>
+          <div style="display:grid; gap:10px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+            <label>
+              日付
+              <input type="date" id="company-next-date" />
+            </label>
+            <label>
+              時刻
+              <input type="time" id="company-next-time" />
+            </label>
+            <label>
+              内容
+              <input type="text" id="company-next-label" placeholder="説明会 / ES締切 など" />
+            </label>
+            <label>
+              色
+              <select id="company-next-color">
+                <option value="blue">青</option>
+                <option value="green">緑</option>
+                <option value="orange">オレンジ</option>
+                <option value="purple">紫</option>
+                <option value="gray">グレー</option>
+              </select>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="primary">登録する</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>&copy; 就活管理アプリ</small>
+  </footer>
+
+  <div id="toast-root"></div>
+
+  <script type="module" src="./js/page-register.js"></script>
+</body>
+</html>

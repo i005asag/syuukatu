@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>就活管理アプリ - ホーム</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header class="app-header">
+    <h1>🧭 就活管理アプリ</h1>
+    <nav class="app-nav">
+      <a href="list.html" aria-current="page">🏠 ホーム</a>
+      <a href="calendar.html">📅 カレンダー</a>
+      <a href="register.html">➕ 企業登録</a>
+
+      <!-- ✅ 追加：パスワード変更 -->
+      <button id="pw-settings-btn" type="button" class="secondary">🔐 パスワード</button>
+
+      <button id="logout-btn" type="button" class="secondary">ログアウト</button>
+    </nav>
+  </header>
+
+  <main class="app-main">
+    <section class="view active">
+      <div class="view-header">
+        <h2>ホーム（応募企業一覧）</h2>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <button id="add-company-btn" type="button" class="primary">＋ 企業を追加</button>
+        </div>
+      </div>
+
+      <!-- フィルタ & ソート -->
+      <div class="list-controls">
+        <label>
+          ステータス
+          <select id="filter-status">
+            <option value="all">すべて</option>
+            <option value="未応募">未応募</option>
+            <option value="エントリー済">エントリー済</option>
+            <option value="選考中">選考中</option>
+            <option value="内定">内定</option>
+            <option value="終了">終了</option>
+          </select>
+        </label>
+
+        <label>
+          評価フィルタ軸
+          <select id="filter-rating-key">
+            <option value="none">なし</option>
+            <option value="avg">平均</option>
+            <option value="motivation">志望度</option>
+            <option value="salary">年収</option>
+            <option value="holidays">休日</option>
+            <option value="culture">社風</option>
+          </select>
+        </label>
+
+        <label>
+          ★以上
+          <select id="filter-rating-min">
+            <option value="0">指定なし</option>
+            <option value="1">★1以上</option>
+            <option value="2">★2以上</option>
+            <option value="3">★3以上</option>
+            <option value="4">★4以上</option>
+            <option value="5">★5以上</option>
+          </select>
+        </label>
+
+        <label>
+          並び替え
+          <select id="sort-order">
+            <option value="created">登録順</option>
+            <option value="name">企業名</option>
+            <option value="next_date">次の予定</option>
+            <option value="rating_avg">評価（平均）</option>
+            <option value="rating_motivation">評価（志望度）</option>
+            <option value="rating_salary">評価（年収）</option>
+            <option value="rating_holidays">評価（休日）</option>
+            <option value="rating_culture">評価（社風）</option>
+          </select>
+        </label>
+
+        <button type="button" id="sort-direction-toggle" class="sort-dir-btn" data-direction="asc">
+          昇順
+        </button>
+      </div>
+
+      <div class="deadline-badge" data-deadline=""></div>
+
+      <div id="company-list" class="card-list"></div>
+      <p id="empty-company-message" class="muted">
+        まだ企業が登録されていません。「企業を追加」から登録してください。
+      </p>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>&copy; 就活管理アプリ</small>
+  </footer>
+
+  <!-- ✅ 追加：パスワード変更ダイアログ -->
+  <dialog id="pw-dialog">
+    <form method="dialog" class="form" id="pw-form">
+      <h2 style="margin-top:0;">🔐 パスワード変更</h2>
+      <p class="muted" style="margin-top:0;">
+        （データ暗号化はしていません）
+      </p>
+
+      <label>
+        現在のパスワード
+        <input type="text" id="pw-current" autocomplete="current-password" required />
+      </label>
+
+      <label>
+        新しいパスワード
+        <input type="text" id="pw-new" autocomplete="new-password" required />
+      </label>
+
+      <label>
+        新しいパスワード（確認）
+        <input type="text" id="pw-new-confirm" autocomplete="new-password" required />
+      </label>
+
+      <p id="pw-error" class="login-error" style="display:none;"></p>
+
+      <div class="form-actions">
+        <button type="button" class="secondary" id="pw-cancel">キャンセル</button>
+        <button type="submit" class="primary">変更する</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Toast -->
+  <div id="toast-root"></div>
+
+  <!-- page script -->
+  <script type="module" src="./js/page-list.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>就活管理アプリ - ログイン</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header class="app-header">
+    <h1>🧭 就活管理アプリ</h1>
+    <nav class="app-nav">
+      <a href="list.html">🏠 ホーム</a>
+      <a href="calendar.html">📅 カレンダー</a>
+      <a href="register.html">➕ 企業登録</a>
+    </nav>
+  </header>
+
+  <main class="app-main">
+    <section class="view active">
+      <h2 id="mode-title">ログイン</h2>
+
+      <form id="login-form" class="form">
+        <p id="mode-desc" class="muted">
+          パスワードを入力してログインしてください。<br />
+          （※簡易ロック）
+        </p>
+
+        <!-- 初回設定モードのときだけ表示する（JSで切替） -->
+        <div id="setup-note" class="muted" style="display:none;">
+          初回はパスワードを設定してください（次回からログインに使います）。
+        </div>
+
+        <div class="two-col">
+          <label>
+            <span id="pw-label">パスワード</span>
+            <input
+              type="password"
+              id="login-password"
+              required
+              placeholder="例：job2025"
+              autocomplete="current-password"
+            />
+          </label>
+
+          <!-- 初回設定の確認欄（JSで表示切替） -->
+          <label id="confirm-wrap" style="display:none;">
+            パスワード（確認）
+            <input
+              type="password"
+              id="login-password-confirm"
+              placeholder="もう一度入力"
+              autocomplete="new-password"
+            />
+          </label>
+        </div>
+
+        <p id="login-error" class="login-error" style="display:none;"></p>
+
+        <div class="form-actions" style="justify-content: space-between; align-items:center;">
+          <button id="forgot-btn" type="button" class="link-button" style="margin:0; display:none;">
+            パスワードを忘れた
+          </button>
+
+          <button id="submit-btn" type="submit" class="primary">ログイン</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>&copy; 就活管理アプリ</small>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast-root"></div>
+
+  <script type="module" src="./js/page-index.js"></script>
+</body>
+</html>
